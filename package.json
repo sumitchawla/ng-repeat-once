@@ -1,0 +1,33 @@
+{
+  "name": "ng-repeat-once",
+  "author": "Sumit Chawla",
+  "version": "0.0.1",
+  "description": "One time binding of collection elements",
+  "keywords": [
+    "angularjs",
+    "ng-repeat-once",
+    "ng-repeat once",
+    "ng-repeat no watch"
+  ],
+  "homepage": "https://github.com/sumitchawla/ng-repeat-once",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sumitchawla/ng-repeat-once.git"
+  },
+  "devDependencies": {
+    "phantomjs" : "~1.9",
+    "karma": "~0.12",
+    "karma-chai": "~0.1",
+    "karma-mocha": "~0.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "mocha": "~1.20"
+  },
+  "main": "ng-repeat-once",
+  "bugs": {
+    "url": "https://github.com/sumitchawla/ng-repeat-once/issues"
+  },
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+  },
+  "license": "MIT"
+}
