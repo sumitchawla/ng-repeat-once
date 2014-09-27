@@ -23,7 +23,6 @@ describe("ch.directive tests", function() {
     assert.equal($(".item", elem1).length, 6);
     assert.equal($(".item", elem2).length, 4);
     $scope.Collection.splice(0, 1);
-    console.log($scope.Collection);
     $scope.$digest();
     assert.equal($(".item", elem1).length, 5);
     assert.equal($(".item", elem2).length, 4);

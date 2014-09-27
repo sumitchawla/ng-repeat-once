@@ -9,8 +9,6 @@ angular.module("ch.directives",[])
     $$tlb: true,
     compile: function ngRepeatCompile($element, $attr) {
       var expression = $attr.ngRepeatOnce;
-      var ngRepeatEndComment = document.createComment(' end ngRepeat: ' + expression + ' ');
-
       var match = expression.match(/^\s*([\s\S]+?)\s+in\s+([\s\S]+?)(?:\s+as\s+([\s\S]+?))?(?:\s+track\s+by\s+([\s\S]+?))?\s*$/);
 
       if (!match) {
@@ -21,7 +19,6 @@ angular.module("ch.directives",[])
       var lhs = match[1];
       var rhs = match[2];
       var aliasAs = match[3];
-      var trackByExp = match[4];
 
       match = lhs.match(/^(?:([\$\w]+)|\(([\$\w]+)\s*,\s*([\$\w]+)\))$/);
 
@@ -38,7 +35,7 @@ angular.module("ch.directives",[])
           aliasAs);
       }
 
-      return function ngRepeatLink($scope, $element, $attr, ctrl, $transclude) {
+      return function ($scope, $element, $attr, ctrl, $transclude) {
         //watch props
        var unwatch = $scope.$watchCollection(rhs, function ngRepeatAction(collection) {
           var index, length,
@@ -69,8 +66,8 @@ angular.module("ch.directives",[])
           for (index = 0; index < collectionLength; index++) {
             key = (collection === collectionKeys) ? index : collectionKeys[index];
             value = collection[key];
-            $transclude(function ngRepeatTransclude(clone, scope) {
-                $animate.enter(clone, null, jQuery(previousNode));
+            $transclude(function (clone, scope) {
+                $animate.enter(clone, null, angular.element(previousNode));
                 scope[valueIdentifier] = value;
                 if (keyIdentifier) scope[keyIdentifier] = key;
                 scope.$index = index;
