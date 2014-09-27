@@ -1,5 +1,5 @@
 var assert = chai.assert;
-describe("ch.directivedirectivests", function() {
+describe("ch.directive tests", function() {
   beforeEach(module('ch.directives'));
   
    console.log("jQuery Version", $().jquery);
